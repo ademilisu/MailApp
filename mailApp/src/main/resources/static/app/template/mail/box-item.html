@@ -1,0 +1,41 @@
+<div class="d-flex flex-row-reverse">
+	<div class="col-md-11 mt-1 addscroll" style="height: 550px;">
+		<div class="row">
+			<div class="col-sm-2 mb-2" style="height: 30px">
+				<button class="btn text-secondary" ng-show="sVisible"
+					ng-click="action('see')">
+					<i class="fa-solid fa-eye"></i>
+				</button>
+				<button class="btn text-secondary" ng-show="dVisible"
+					ng-click="action()">
+					<i class="fa-solid fa-trash"></i>
+				</button>
+				<button class="btn text-secondary" ng-show="rVisible"
+					ng-click="recycle()">
+					<i class="fa-solid fa-recycle"></i>
+				</button>
+			</div>
+		</div>
+		<table class="table table-responsive table-hover">
+			<tbody>
+				<tr class="select" ng-repeat="item in items | orderBy: '-mail.date'"
+					ng-class="(item.type == 'UNREAD') ? 'bg' : 'bg-light'">
+					<td>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								ng-model="check" id="myCheckBox"
+								ng-change="checked(item, check)">
+						</div>
+					</td>
+					<td><img class="img-lg rounded-circle "
+						data-ng-src="data:image/png;base64, {{item.sender.image.photo}}"
+						style="width: 25px; height: 25px;"><i class="text-secondary">
+							{{item.sender.username}}</i></td>
+					<td ng-click="select(item)">{{item.mail.title}}</td>
+					<td ng-click="select(item)" class="hide">{{item.mail.content}}</td>
+					<td ng-click="select(item)" ng-bind="item.mail.date | date: short"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

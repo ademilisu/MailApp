@@ -1,0 +1,46 @@
+<div class="container bg-light rounded-3 shadow" style="height: 620px;">
+	<h2 class="text-warning">{{pageTitle}}</h2>
+	<div class="d-flex flex-row-reverse">
+		<div class="col-md-11 mt-1">
+			<div class="card text-center">
+				<form id="sendForm">
+					<div class="card-header">
+						<div class="form-group row">
+							<label for="emailInput" class="col-sm-1 text-muted">{{mailLabel}}:</label>
+							<div class="col-sm-11">
+								<input id="emailInput" class="form-control" type="text"
+									ng-model="names" placeholder="Type email and hit enter"
+									ng-keyup="setReceivers($event)" autocomplete="off" required
+									ng-disabled="!new">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="title" class="col-sm-1 text-muted">Title:</label>
+							<div class="col-sm-11">
+								<input id="title" class="form-control input" type="text"
+									ng-model="mailDto.item.mail.title" autocomplete="off"
+									ng-disabled="!new">
+							</div>
+						</div>
+					</div>
+					<div class="card-body overflow-auto" style="height: 375px;">
+						<h5 class="card-title text-muted">Message</h5>
+						<textarea rows="12" class="form-control"
+							ng-model="mailDto.item.mail.content" ng-disabled="!new"></textarea>
+					</div>
+				</form>
+				<div class="card-footer text-muted">
+					<div ng-show="!new">
+						<i ng-bind="mailDto.item.mail.date | date: short"></i>
+					</div>
+					<div class="d-flex flex-row-reverse">
+						<button class="btn btn-secondary" type="submit" ng-click="send()"
+							ng-show="new">Send</button>
+						<button class="btn btn-danger" type="submit" ng-click="trash()"
+							ng-show="!new">Delete</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

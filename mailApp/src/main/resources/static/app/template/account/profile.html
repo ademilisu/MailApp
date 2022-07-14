@@ -1,0 +1,28 @@
+<section class="vh-100">
+	<div class="container py-5 h-100">
+		<div class="row d-flex justify-content-center align-items-center h-80">
+			<div class="col-12 col-md-10 col-lg-8 col-xl-5 text-center">
+				<div class="card bg-light shadow3-strong"
+					style="border-radius: 1rem;">
+					<div class="card-header">
+						<h3 class="text-secondary">
+							<strong>Profile</strong>
+						</h3>
+					</div>
+					<div class="card-body p-4 text-center">
+						<img id="image" class="img-lg rounded-circle mb-3"
+							data-ng-src="data:image/png;base64, {{account.image.photo}}"
+							ngf-select="select($file)" ng-model="file" src=""
+							style="cursor: pointer; width: 200px; height: 200px;">
+						<div>
+							<button class="btn btn-danger btn-md" type="submit"
+								ng-click="delete()">Delete</button>
+							<button class="btn btn-success btn-md" type="submit"
+								ng-click="save()">Save</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

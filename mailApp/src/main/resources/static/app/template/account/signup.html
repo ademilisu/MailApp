@@ -1,0 +1,40 @@
+<section class="vh-100">
+	<div class="container py-5 h-100">
+		<div class="row d-flex justify-content-center align-items-center h-80">
+			<div class="col-12 col-md-10 col-lg-8 col-xl-6 text-center">
+				<div class="card bg-light shadow3-strong"
+					style="border-radius: 1rem;">
+					<div class="card-body p-5 text-center">
+						<h3 class="text-secondary">
+							<strong>Sign up</strong>
+						</h3>
+						<form id="signupForm" ng-submit="signup()">
+							<div class="form-outline mb-4">
+								<input type="text" class="form-control form-control-lg"
+									placeholder="Enter email" ng-model="userRequest.username"
+									required />
+							</div>
+							<div class="form-outline mb-4">
+								<input type="password" id="typePasswordX-2"
+									class="form-control form-control-lg"
+									placeholder="Enter password" ng-model="userRequest.password"
+									required />
+							</div>
+							<button class="btn btn-primary btn-lg btn-block" type="submit"
+								form="signupForm">Register</button>
+							<hr class="my-4">
+						</form>
+						<div>
+							<div class="alert alert-danger" role="alert" ng-if="error">
+								This email address is already taken!</div>
+							<p class="mb-0">
+								Have an account? <a href="/login" class="text-primary fw-bold">
+									Login</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
